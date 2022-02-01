@@ -1,0 +1,24 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>Group Create</h2>
+      <%= form_with model:@group, local:true do |f| %>
+        <%= render 'layouts/errors', obj: @group %>
+        <div class = "form-group mt-2">
+          <%= f.label :name, "グループ名", class: "my-2" %><br>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group mt-2">
+          <%= f.label :introduction, "紹介文", class: "my-2" %><br>
+          <%= f.text_area :introduction, class: "form-control" %>
+        </div>
+        <div class="form-group mt-2">
+          <%= f.label :image, "グループ画像", class: "my-2" %><br>
+          <%= f.attachment_field :image, class: "form-control-file user_image" %>
+        </div>
+        <div class="form-group mt-2">
+          <%= f.submit class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+  </div>
+</div>
