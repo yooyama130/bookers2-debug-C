@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   resources :groups
   post 'groups/:id/join' => 'groups#join', as: "join_group"
   delete 'groups/:id/leave' => 'groups#leave', as: "leave_group"
+  get 'groups/:id/notice' => 'groups#notice_event', as: "notice_an_event"
+  post 'groups/:id/notice' => 'groups#send_email', as: "send_an_email"
 end

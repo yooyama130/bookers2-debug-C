@@ -26,6 +26,7 @@
               <p><%= user.name %></p>
             <% end %>
           </td>
+          <!--オーナーか、それ以外（参加 or 未参加）かで変わるリンク-->
           <% if @group.owner_id == current_user.id %>
             <td><%= link_to 'Edit', edit_group_path(@group), class: "btn btn-sm btn-success edit_group_#{@group.id}" %></td>
           <% else %>
@@ -34,6 +35,10 @@
             <% else %>
               <td><%= link_to 'Join this group', join_group_path(@group),method: :post, class: "btn btn-sm btn-primary" %></td>
             <% end %>
+          <% end %>
+          <!--オーナーのみ表示-->
+          <% if @group.owner_id == current_user.id %>
+            <td><%= link_to 'Notice an Event', notice_an_event_path(@group), class: "btn btn-sm btn-primary" %></td>
           <% end %>
         </tr>
       </table>

@@ -11,6 +11,14 @@ class GroupsController < ApplicationController
     @new_book = Book.new
   end
 
+  def notice_event
+    @group = Group.find(params[:id])
+  end
+
+  def send_email
+    @group = Group.find(params[:id])
+  end
+
   def new
     @group = Group.new
   end
