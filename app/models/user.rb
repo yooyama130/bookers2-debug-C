@@ -28,6 +28,10 @@ class User < ApplicationRecord
     followings.include?(user)
  end
 
+# グループとのアソシエーション
+ has_many :group_users , foreign_key: "user_id", dependent: :destroy
+ has_many :groups, through: :group_users
+
 
   attachment :profile_image, destroy: false
 

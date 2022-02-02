@@ -13,4 +13,6 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   resources :groups
+  post 'groups/:id/join' => 'groups#join', as: "join_group"
+  delete 'groups/:id/leave' => 'groups#leave', as: "leave_group"
 end
